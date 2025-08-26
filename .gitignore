@@ -105,3 +105,6 @@ travel_env/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+
+PYTHONANYWHERE_DEPLOYMENT.md

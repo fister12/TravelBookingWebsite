@@ -5,7 +5,7 @@ from .settings import *
 DEBUG = False
 
 # Update this with your PythonAnywhere username
-ALLOWED_HOSTS = ['yourusername.pythonanywhere.com']
+ALLOWED_HOSTS = ['AadityaKapruwan.mysql.pythonanywhere-services.com']
 
 # Database for PythonAnywhere (MySQL)
 # You'll need to update these with your actual database details from PythonAnywhere

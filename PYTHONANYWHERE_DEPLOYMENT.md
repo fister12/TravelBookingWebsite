@@ -3,7 +3,7 @@
 ## Prerequisites
 1. PythonAnywhere account (free or paid)
 2. Your code uploaded to GitHub
-3. Basic knowledge of command line
+
 
 ## Step-by-Step Deployment
 

@@ -1,0 +1,40 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Book Travel</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Travel Details</h5>
+                        <p><strong>Type:</strong> {{ travel_option.travel_type }}</p>
+                        <p><strong>From:</strong> {{ travel_option.source }}</p>
+                        <p><strong>To:</strong> {{ travel_option.destination }}</p>
+                        <p><strong>Departure:</strong> {{ travel_option.departure_time|date:"M d, Y H:i" }}</p>
+                        <p><strong>Price per seat:</strong> ${{ travel_option.price }}</p>
+                        <p><strong>Available seats:</strong> {{ travel_option.available_seats }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="num_seats" class="form-label">Number of Seats</label>
+                                <input type="number" class="form-control" id="num_seats" name="num_seats" 
+                                       min="1" max="{{ travel_option.available_seats }}" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                                <a href="{% url 'travel_option_list' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

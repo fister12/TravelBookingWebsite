@@ -1,0 +1,65 @@
+{% extends 'booking/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>Search Travel Options</h2>
+        
+        <form method="get" class="mb-4">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    {{ form.source }}
+                </div>
+                <div class="col-md-3">
+                    {{ form.destination }}
+                </div>
+                <div class="col-md-3">
+                    {{ form.departure_date }}
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </div>
+        </form>
+        
+        <h3>Available Travel Options</h3>
+        
+        {% if travel_options %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Type</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Departure</th>
+                            <th>Price</th>
+                            <th>Available Seats</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for option in travel_options %}
+                        <tr>
+                            <td>{{ option.travel_type }}</td>
+                            <td>{{ option.source }}</td>
+                            <td>{{ option.destination }}</td>
+                            <td>{{ option.departure_time|date:"M d, Y H:i" }}</td>
+                            <td>${{ option.price }}</td>
+                            <td>{{ option.available_seats }}</td>
+                            <td>
+                                <a href="{% url 'book_travel' option.id %}" class="btn btn-success btn-sm">Book Now</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> No travel options available matching your criteria.
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

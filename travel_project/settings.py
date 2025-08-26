@@ -125,3 +125,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Login/Logout redirect URLs
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Production settings for PythonAnywhere
+import os
+
+# Static files configuration for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Allow PythonAnywhere hosting (update with your username)
+if 'yourusername.pythonanywhere.com' not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.extend(['yourusername.pythonanywhere.com', 'localhost', '127.0.0.1'])
+
+# Basic security settings
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True

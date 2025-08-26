@@ -1,0 +1,4 @@
+# Simple requirements for PythonAnywhere deployment
+# No database setup required - uses SQLite
+
+Django>=5.0,<6.0

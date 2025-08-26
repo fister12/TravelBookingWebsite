@@ -1,15 +1,20 @@
 #!/bin/bash
 
 # Simple PythonAnywhere Deployment Script (SQLite)
-# Run this script in your project directory on PythonAnywhere
+# Run this script in the travel_project directory on PythonAnywhere
 
 echo "🚀 Starting SIMPLE deployment to PythonAnywhere..."
 
 # Check if we're in the right directory
 if [ ! -f "manage.py" ]; then
-    echo "❌ Error: manage.py not found. Make sure you're in the travel_project directory."
+    echo "❌ Error: manage.py not found."
+    echo "Current directory: $(pwd)"
+    echo "Contents: $(ls -la)"
+    echo "Make sure you're in the travel_project directory that contains manage.py"
     exit 1
 fi
+
+echo "✅ Found manage.py - proceeding with deployment..."
 
 # Install Django (simple approach)
 echo "📦 Installing Django..."

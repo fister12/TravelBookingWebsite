@@ -11,15 +11,16 @@
 #### 1. Get Your Code
 - [ ] Open Bash Console on PythonAnywhere
 - [ ] Run: `git clone https://github.com/fister12/TravelBookingWebsite.git`
-- [ ] Run: `cd TravelBookingWebsite`
+- [ ] Run: `cd TravelBookingWebsite/travel_project`
+- [ ] Run: `bash check_structure.sh` (to verify everything is in place)
 
 #### 2. Set Up Environment
-- [ ] Run: `python3.10 -m venv travel_env`
-- [ ] Run: `source travel_env/bin/activate`
+- [ ] Run: `python3.10 -m venv ../travel_env` (create it one level up)
+- [ ] Run: `source ../travel_env/bin/activate`
 - [ ] Run: `pip install Django`
 
 #### 3. Set Up Your App (SQLite - Super Easy!)
-- [ ] Run: `cd travel_project`
+- [ ] You should already be in the travel_project directory
 - [ ] Run: `python manage.py migrate` (creates database automatically!)
 - [ ] Run: `python manage.py createsuperuser`
 - [ ] Run: `python manage.py create_sample_data`
